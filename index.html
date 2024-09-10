@@ -1,1 +1,65 @@
-usman
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Usman</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!-- font    -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="font-family: poppins;">
+    <header class="container-fluid mycontainer p-0">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand fs-1" href="#">
+                    <img src="./logo img.png" alt="" width="50" height="50" class="d-inline-block align-text-top">
+                    <!-- <h1 class="d-inline-block">Usman's Tasks App</h1> -->
+                    Islamic Info
+                </a>
+            </div>
+        </nav>
+    </header>
+    <!--  -->
+    <main>
+        <div class="container ">
+            <div class="row">
+                <div class="col mt-2">
+                    <input type="text" id="taskinput" placeholder="Enter your task" required>
+                    <button id="addBtn" class="w-100 ">Add Task</button>
+                    <h4 class="mt-2">Our Tasks </h4>
+                    <ul id="taskList"></ul>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <!-- Add this loader to your HTML -->
+        <div id="loader" style="display: none;">Loading...</div>
+
+    </main>
+    <!--  -->
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <!--  -->
+    <script type="module" src="./app.js"></script>
+</body>
+
+</html>
