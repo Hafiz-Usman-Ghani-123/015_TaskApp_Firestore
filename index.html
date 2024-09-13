@@ -14,17 +14,26 @@
     <link
         href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
         rel="stylesheet" />
+    <!-- my css -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body style="font-family: poppins;">
     <header class="container-fluid mycontainer p-0">
-        <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid">
+        <nav class=" navbar navbar-light bg-light d-flex  align-content-around">
+            <div class="">
                 <a class="navbar-brand fs-1" href="#">
                     <img src="./logo img.png" alt="" width="50" height="50" class="d-inline-block align-text-top">
-                    Usman's Tasks App
+                    TodoApp
                 </a>
+            </div>
+            <div class="userContainer  d-inline-block">
+                <h1 class="user-email "></h1>
+                <!-- Button trigger modal -->
+                <button type="button" class=" btn btn-outline-danger me-2 " data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
+                    Logout
+                </button>
             </div>
         </nav>
     </header>
@@ -41,6 +50,25 @@
             </div>
         </div>
         <!--  -->
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div> -->
+                    <div class="modal-body text-center fs-5 fw-bold">
+                        Sure ! Do You Want to Log Out ? 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="logout btn btn-outline-danger">I'm Sure </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Add this loader to your HTML -->
         <div id="loader" style="display: none;">Loading...</div>
 
@@ -58,6 +86,7 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
     <!--  -->
+    <script type="module" src="./firebase.js"></script>
     <script type="module" src="./app.js"></script>
 </body>
 
