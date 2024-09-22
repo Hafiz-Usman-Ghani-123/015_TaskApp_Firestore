@@ -20,7 +20,6 @@
         rel="stylesheet" />
     <!--  toastify-->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 
 <body>
@@ -40,11 +39,11 @@
             <!-- <h6 class="text-center mt-3">Created By Usman Ghani</h6> -->
             <div class=" mt-5 d-sm-flex justify-content-sm-center gap-sm-2    ">
                 <!-- sign up // register // create account  -->
-                <form id="signin" class="signup col-sm-6 p-2 rounded-3 text-light  bg-success mb-3 mb-sm-0">
+                <form id="signup" class="signup col-sm-6 p-2 rounded-3 text-light  bg-success mb-3 mb-sm-0">
                     <h4 class="text-center ">SignUp </h4>
                     Email <input required type="email" name="" id="s_email" class="form-control mb-2">
                     Password<input required type="password" name="" id="s_pass" class="form-control ">
-                    <button type="submit" class=" btn btn-light mt-2 border-success " id="s_btn">Sign-up
+                    <button type="submit" class=" btn btn-light mt-2 border-success " id="s_btn">Signup
                     </button>
                 </form>
                 <!-- Login in  -->
@@ -67,9 +66,15 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"></script>
+        <!--  toastify-->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <!-- mine -->
         <script type="module" src="./firebase.js"></script>
         <script type="module" src="./forms.js"></script>
+        <script type="module" src="./app.js"></script>
+        <!-- <script src="app.js" defer></script> -->
+        <!-- <script src="forms.js" defer></script> -->
+
     </body>
 
 </html>

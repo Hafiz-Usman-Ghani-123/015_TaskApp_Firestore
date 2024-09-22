@@ -5,18 +5,19 @@ import {
   auth,
   setDoc,
   getAuth,
+  getFirestore,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
 } from "./firebase.js";
 
-// aik function ban diya hy ab toast use krty rhoooo
-function toast(msg) {
-  Toastify({
+// Toast function
+async function toast(msg) {
+  await Toastify({
     text: msg,
     className: "info",
-    position: "center", // `left`, `center` or `right`
+    position: "center",
     style: {
       background: "linear-gradient(to right, #00b09b, #96c93d)",
     },
@@ -24,58 +25,69 @@ function toast(msg) {
 }
 
 // auth state ============================================================
-
 // onAuthStateChanged(auth, (user) => {
 //   if (user) {
-//     location.href = "index.html";
+//     location.href = "index.html"; // Redirection on successful login
+//   } else {
+//     location.href = "form-firebase.html"; // Redirect on sign out
 //   }
 // });
 
-// signup============================================================
-
+// Signup ============================================================
 let userId = "";
 const s_email = document.querySelector("#s_email");
 const s_pass = document.querySelector("#s_pass");
-const sForm = document.querySelector("#signin");
-// function which  exicute on click
-sForm.addEventListener("submit", createAccount);
-function createAccount(ev) {
-  ev.preventDefault();
-  createUserWithEmailAndPassword(auth, s_email.value, s_pass.value)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      userId = user.uid;
-      setDoc(doc(db, "users", user.uid), {
-        email: s_email.value,
-        password: s_pass.value,
+const sForm = document.querySelector("#signup");
+
+// Ensure form exists before adding event listener
+if (sForm) {
+  sForm.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    createUserWithEmailAndPassword(auth, s_email.value, s_pass.value)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        userId = user.uid;
+
+        // Store user details in Firestore
+        setDoc(doc(db, "users", user.uid), {
+          email: s_email.value,
+          password: s_pass.value,
+        })
+          .then(() => {
+            toast("Account Has Been Created");
+            sForm.reset();
+          })
+          .catch((error) => {
+            toast("Error creating document: " + error.message);
+          });
+      })
+      .catch((error) => {
+        toast(error.message);
+        sForm.reset();
       });
-      toast("Account Has Been Created");
-      sForm.reset();
-    })
-    .catch((error) => {
-      const errorMessage = error.message;
-      toast(errorMessage);
-    });
+  });
 }
 
-// login form code======================================================
-
+// Login form code =======================================================
 const l_email = document.querySelector("#l_email");
 const l_pass = document.querySelector("#l_pass");
 const lForm = document.querySelector("#login");
-lForm.addEventListener("submit", loginAccount);
-async function loginAccount(ev) {
-  ev.preventDefault();
-  signInWithEmailAndPassword(auth, l_email.value, l_pass.value)
-    .then((userCredential) => {
-      var user = userCredential.user;
-      // toast("Login successful");
-      location.href = "index.html";
-    })
-    .catch((error) => {
-      const errorMessage = error.message;
-      toast(errorMessage);
-    });
+
+// Ensure form exists before adding event listener
+if (lForm) {
+  lForm.addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    signInWithEmailAndPassword(auth, l_email.value, l_pass.value)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        toast("Login successful");
+        location.href = "index.html"; // Redirect after successful login
+      })
+      .catch((error) => {
+        toast(error.message);
+      });
+  });
 }
-// export
+
+// Export
 export { toast, userId };
